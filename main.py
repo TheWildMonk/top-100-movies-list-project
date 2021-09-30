@@ -15,9 +15,9 @@ soup = BeautifulSoup(empire_webpage, "html.parser")
 movie_list = soup.find_all(name="h3", class_="title")
 movie_list.reverse()
 
-# Loop through the list and write the movie names in movies.txt file
-for title in range(len(movie_list)):
-    prefix_removed = str(movie_list[title]).removeprefix('<h3 class="title">')
-    movie_title = str(prefix_removed.removesuffix('</h3>'))
-    with open(file="movies.txt", mode="a") as movie_file:
+# Write the movie names in movies.txt file
+with open(file="movies.txt", mode="w") as movie_file:
+    for title in range(len(movie_list)):
+        prefix_removed = str(movie_list[title]).removeprefix('<h3 class="title">')
+        movie_title = str(prefix_removed.removesuffix('</h3>'))
         movie_file.write(f"{movie_title}\n")
