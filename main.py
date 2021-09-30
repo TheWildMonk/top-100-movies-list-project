@@ -13,11 +13,12 @@ soup = BeautifulSoup(empire_webpage, "html.parser")
 
 # List of movie titles with html tags and reverse the list
 movie_list = soup.find_all(name="h3", class_="title")
-movie_list.reverse()
+movie_title_list = [title.getText() for title in movie_list]
 
-# Loop through the list and write the movie names in movies.txt file
-for title in range(len(movie_list)):
-    prefix_removed = str(movie_list[title]).removeprefix('<h3 class="title">')
-    movie_title = str(prefix_removed.removesuffix('</h3>'))
-    with open(file="movies.txt", mode="a") as movie_file:
-        movie_file.write(f"{movie_title}\n")
+# Reversing the list of the movies
+titles = movie_title_list[::-1]
+
+# Write the movie names in movies.txt
+with open(file="movies.txt", mode="w") as movies:
+    for each_title in titles:
+        movies.write(f"{each_title}\n")
