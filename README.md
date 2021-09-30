@@ -7,7 +7,7 @@ out a list of top 100 movies to watch.</br> </br>
 
 ### <u>**Libraries Used:**</u> <br />
 BeautifulSoup <br/>
-
+Requests
 
 ### <u>**Link:**</u> <br />
 [Top 100 Movies List from Empire Online](https://www.empireonline.com/movies/features/best-movies-2/) <br/>
